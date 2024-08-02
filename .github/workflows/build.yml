@@ -1,0 +1,24 @@
+name: Build and Release
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  build:
+    runs-on: windows-latest
+
+    steps:
+    - uses: actions/checkout@v2
+    - name: Set up Visual Studio
+      uses: microsoft/setup-msbuild@v1.0.2
+
+    - name: Build morpheus.c
+      run: |
+        cl /EHsc morpheus.c /Fe:morpheus.exe
+    - name: Archive production artifacts
+      uses: actions/upload-artifact@v2
+      with:
+        name: morpheus-exe
+        path: morpheus.exe
