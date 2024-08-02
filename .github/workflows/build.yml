@@ -10,13 +10,17 @@ jobs:
     runs-on: windows-latest
 
     steps:
-    - uses: actions/checkout@v2
+    - name: Checkout repository
+      uses: actions/checkout@v2
+    
     - name: Set up Visual Studio
-      uses: microsoft/setup-msbuild@v1.0.2
-
+      run: |
+        call "C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Auxiliary\Build\vcvars64.bat"
+    
     - name: Build morpheus.c
       run: |
         cl /EHsc morpheus.c /Fe:morpheus.exe
+
     - name: Archive production artifacts
       uses: actions/upload-artifact@v2
       with:
