@@ -6,7 +6,7 @@
 
 ## Descrição
 
-Morpheus é um exemplo fictício de malware criado para fins educacionais. Este malware faz o seguinte:
+Morpheus é um malware criado para fins educacionais. Este malware faz o seguinte:
 - Cria um arquivo de alerta na área de trabalho informando sobre a infecção.
 - Exibe uma mensagem pop-up.
 - Garante a execução automática no Windows.
